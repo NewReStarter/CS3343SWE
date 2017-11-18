@@ -23,7 +23,7 @@ public class Rook extends Piece{
 		*/
 	
 	@Override
-	protected boolean isValid(int target_x, int target_y){
+	public boolean isValid(int target_x, int target_y){
 		if(x == target_x && y != target_y)
 			return true;
 		else if(y == target_y && x!= target_x)

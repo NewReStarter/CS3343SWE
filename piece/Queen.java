@@ -11,7 +11,7 @@ public class Queen extends Piece{
 		setY(y);
 	}
 	@Override
-	protected boolean isValid(int target_x, int target_y){
+	public boolean isValid(int target_x, int target_y){
 		if(Math.abs(x-target_x) != Math.abs(y-target_y) || (target_x == x && target_y != y) || (target_y == y && target_x != x))
 			return false;
 		else

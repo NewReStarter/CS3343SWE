@@ -10,18 +10,20 @@ public class Bishop extends Piece{
 		setX(x);
 		setY(y);
 	}
+	
 	@Override
-	protected boolean isValid(int target_x, int target_y){
+	public boolean isValid(int target_x, int target_y){
 		if(Math.abs(x-target_x) != Math.abs(y-target_y))
 			return false;
 		else
 			return true;
 	}
+	
 	public String move(int target_x, int target_y){
 		if(isValid(target_x,target_y)){
 			setX(target_x);
 			setY(target_y);
-			return "("+x+","+y+")";
+			return "(" + x + "," + y + ")";
 		}
 		else
 			return "Invalid Move";

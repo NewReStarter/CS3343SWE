@@ -5,7 +5,7 @@ public abstract class Piece implements Cloneable{
 	public boolean color;
 	private String id;
 
-	protected boolean isValid(int target_x, int target_y) {
+	public boolean isValid(int target_x, int target_y) {
 		return false;
 	}
 	public abstract String move(int target_x, int target_y);

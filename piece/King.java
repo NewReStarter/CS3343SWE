@@ -23,11 +23,12 @@ public class King extends Piece{
 	
 	*/
 	@Override
-	protected boolean isValid(int target_x, int target_y){
-		if(x-target_x>1 || x-target_x < -1 || y-target_y > 1 || y-target_y < -1)
-			return false;
-		else
+	public boolean isValid(int target_x, int target_y) {
+		if (x == target_x && (y - target_y == 1 || y - target_y == -1))
 			return true;
+		if (y == target_y && (x - target_x == 1 || x - target_x == -1))
+			return true;
+		return false;
 	}
 	public String move(int target_x, int target_y){
 		if(isValid(target_x,target_y)){
