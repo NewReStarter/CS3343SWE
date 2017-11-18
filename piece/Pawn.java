@@ -4,7 +4,7 @@ public class Pawn extends Piece{
 	private int x;
 	private int y;
 	private boolean ifFirst;
-	//private boolean passant; 满足过路兵被吃的条件
+	//private boolean passant; 
 	public Pawn(boolean color, String id, int x, int y){
 		setColor(color);
 		setId(id);
@@ -20,7 +20,7 @@ public class Pawn extends Piece{
 		}
 		
 		
-		protected boolean isValidSp(int target_x, int target_y){//过路兵-对方必须是起始走两步或 吃子
+		protected boolean isValidSp(int target_x, int target_y) {
 			if(this.color){
 				if(target_y - y == 1 && Math.abs(target_x - x) == 1)
 					return true;
@@ -37,7 +37,7 @@ public class Pawn extends Piece{
 		*/
 	
 	@Override
-	protected boolean isValid(int target_x, int target_y){
+	public boolean isValid(int target_x, int target_y){
 		if(ifFirst){
 			if(this.color){
 				if(target_y - y == 2 || target_y - y == 1)
@@ -83,5 +83,9 @@ public class Pawn extends Piece{
 
 	public void setY(int y){
 		this.y = y;
+	}
+	
+	public void setIfFirst(boolean ifFirst) {
+		this.ifFirst = ifFirst;
 	}
 }

@@ -10,7 +10,7 @@ public class Knight extends Piece{
 		setY(y);
 	}
 	@Override
-	protected boolean isValid(int target_x, int target_y){
+	public boolean isValid(int target_x, int target_y){
 		if(Math.abs(target_x-x) == 1){
 			if(Math.abs(target_y-y) == 2)
 				return true;
