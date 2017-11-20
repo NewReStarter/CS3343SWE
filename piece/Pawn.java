@@ -4,19 +4,34 @@ public class Pawn extends Piece{
 	private int x;
 	private int y;
 	private boolean ifFirst;
-	//private boolean passant; 
+	private boolean passant; 
+	
 	public Pawn(boolean color, String id, int x, int y){
 		setColor(color);
 		setId(id);
 		setX(x);
 		setY(y);
 		ifFirst = true;
+		passant = false;
+		
 	}
 	
-	//addition part for special movement
-		/*
-		isPassant(){
+		public boolean atBoundary(){
+			if(this.color)
+				if(y == 7)
+					return true;
+			else
+				if(y == 0)
+					return true;
+			return false;	
+		}
+		
+		public boolean isPassant(){
 			return passant;
+		}
+		
+		public void changePassant(){
+			passant = !passant;
 		}
 		
 		
@@ -34,7 +49,7 @@ public class Pawn extends Piece{
 					return false;
 		}
 		
-		*/
+		
 	
 	@Override
 	public boolean isValid(int target_x, int target_y){
