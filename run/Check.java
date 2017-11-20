@@ -240,4 +240,28 @@ public class Check
 		return checkRowAndCol() || checkDiagonal() || checkKnight() || checkPawn();
 	}
 	
+	public boolean checkOccupyByUs(int x,int y){
+		if(board.getFromPosition(x, y).getpiece() !=null && board.getFromPosition(x, y).getpiece().color==this.color)
+			return true;
+		else
+			return false;
+	}
+	public boolean checkOccupyByEn(int x,int y){
+		if(board.getFromPosition(x, y).getpiece() !=null && board.getFromPosition(x, y).getpiece().color==(!color))
+			return true;
+		else
+			return false;
+	}
+
+	public boolean checkEnpassant(int x,int y,int target_x, int target_y){
+		if(checkOccupyByEn(target_x,y) && board.getFromPosition(target_x, y).getpiece() instanceof Pawn){
+			Pawn p = (Pawn) board.getFromPosition(target_x, y).getpiece();
+			return p.isPassant();
+		}
+		return false;
+				
+				
+		
+		
+	}
 }
