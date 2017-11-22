@@ -259,9 +259,17 @@ public class Check
 			return p.isPassant();
 		}
 		return false;
-				
-				
-		
-		
 	}
+	public boolean checkCastling(int x,int y,int target_x){
+		King p = (King) board.getFromPosition(x, y).getpiece();
+		if(Math.abs(target_x-x)==2 && p.isFirst()){
+			System.out.println("You are doing Castling ");
+			return true;
+		}
+		return false;
+	}
+				
+		
+		
+	
 }
