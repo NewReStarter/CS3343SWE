@@ -3,24 +3,25 @@ package piece;
 public class Rook extends Piece{
 	private int x;
 	private int y;
-	//private boolean isFirst;
+	private boolean isFirst;
 	public Rook(boolean color, String id, int x, int y){
 		setColor(color);
 		setId(id);
 		setX(x);
 		setY(y);
-		//isFirst = true;
+		isFirst = true;
 	}
 	
-	//addition part for special movement
-		/*
-		protected boolean isValidSp(int target_x, int target_y){
-			if(isFirst&&Math.abs(x-target_x)==2)
-				return true;
-			else
-				return false;
+	
+	protected boolean isValidSp(int target_x, int target_y){
+		if(isFirst&&Math.abs(x-target_x)==2)
+			return true;
+		else
+			return false;
 		
-		*/
+	}
+	
+
 	
 	@Override
 	public boolean isValid(int target_x, int target_y){
@@ -32,9 +33,13 @@ public class Rook extends Piece{
 			return false;
 	}
 	public String move(int target_x, int target_y){
-		if(isValid(target_x,target_y)){
+		if(isValid(target_x,target_y)||isValidSp(target_x,target_y)){
 			setX(target_x);
 			setY(target_y);
+			if(isFirst){
+				isFirst = false;
+				
+			}
 			return "("+x+","+y+")";
 		}
 		else

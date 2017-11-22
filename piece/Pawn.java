@@ -30,9 +30,6 @@ public class Pawn extends Piece{
 			return passant;
 		}
 		
-		public void changePassant(){
-			passant = !passant;
-		}
 		
 		
 		protected boolean isValidSp(int target_x, int target_y) {
@@ -83,9 +80,15 @@ public class Pawn extends Piece{
 
 	}
 	public String move(int target_x, int target_y){
-		if(isValid(target_x,target_y)){
+		if(isValid(target_x,target_y)||isValidSp(target_x,target_y)){
 			setX(target_x);
 			setY(target_y);
+			if(ifFirst){
+				ifFirst = false;
+				passant = true;
+			}
+			else
+				passant = false;
 			return "("+x+","+y+")";
 		}
 		else
@@ -100,7 +103,5 @@ public class Pawn extends Piece{
 		this.y = y;
 	}
 	
-	public void setIfFirst(boolean ifFirst) {
-		this.ifFirst = ifFirst;
-	}
+	
 }
