@@ -252,6 +252,69 @@ public class TestPiece {
 		String result = queen.returnName();
 		assertEquals(result, "Queen");
 	}
+	
+	@Test
+	public void test_Rook_isValid0() {
+		Rook rook = new Rook(true, "1");
+		boolean result = rook.isValid(5, 5, 5, 6);
+		assertEquals(result, true);
+	}
+	
+	@Test
+	public void test_Rook_isValid1() {
+		Rook rook = new Rook(true, "1");
+		boolean result = rook.isValid(5, 5, 5, 5);
+		assertEquals(result, false);
+	}
+	
+	@Test
+	public void test_Rook_isValid2() {
+		Rook rook = new Rook(true, "2");
+		boolean result = rook.isValid(5, 5, 6, 5);
+		assertEquals(result, true);
+	}
+	
+	@Test
+	public void test_Rook_isValid3() {
+		Rook rook = new Rook(true, "2");
+		boolean result = rook.isValid(5, 5, 6, 6);
+		assertEquals(result, false);
+	}
+	
+	@Test
+	public void test_Rook_getIsFirst() {
+		Rook rook = new Rook(true, "2", true);
+		boolean result = rook.getIsFirst();
+		assertEquals(result, true);
+	}
+	
+	@Test
+	public void test_Rook_getIsChange() {
+		Rook rook = new Rook(true, "2", true);
+		boolean result = rook.getIsChange();
+		assertEquals(result, true);
+	}
+	
+	@Test
+	public void test_Rook_returnName() {
+		Rook rook = new Rook(true, "1");
+		String result = rook.returnName();
+		assertEquals(result, "Rook");
+	}
+	
+	@Test
+	public void test_Rook_changeIsFirst() {
+		Rook rook = new Rook(true, "1");
+		rook.changeIsFirst();
+		boolean result = rook.getIsFirst();
+		assertEquals(result, false);
+	}
+	
+	/*@Test
+	public void test_Piece_isValid() {
+		
+	}*/
+	
 	/*
 	@Test
 	public void test_Pawn_isValid0() {
