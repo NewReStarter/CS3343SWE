@@ -14,7 +14,7 @@ public class Main
     {
     	ChessBoard chessBoard = ChessBoard.getInstance();
 
-    	Check check = new Check(true);
+    	Check check = Check.getInstance();
     	
     	chessBoard.initialize(0,0,new Rook(true, "1"));
     	chessBoard.initialize(0,1,new Knight(true, "1"));

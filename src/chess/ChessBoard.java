@@ -10,8 +10,7 @@ public class ChessBoard
 {
 	private Piece[][] board;
 	private static ChessBoard theChessBoard = new ChessBoard();
-	private static Check checkBlack = new Check(true);
-	private static Check checkWhite = new Check(false);
+	private static Check check ;
 	private static boolean turn = true;
 	private static boolean castling = false;
 	
@@ -56,15 +55,8 @@ public class ChessBoard
 		turn = !turn;
 	}
 	public boolean move(int x,int y,int target_x,int target_y){
-		Check check;
-		if(!inBoundary(x,y,target_x,target_y)){
-			return false;
-		}
-		if(turn == true){
-			check = checkBlack;
-		}
-			else
-				check = checkWhite;
+		check = Check.getInstance();
+
 		if(check.checkmate())
 			System.out.println("Your king is in check!");
 		
@@ -268,13 +260,7 @@ public class ChessBoard
 			System.out.println();
 		}
 	}
-	public Check returnBlackCheck(){
-		return checkBlack;
-	}
 
-	public Check returnWhiteCheck(){
-		return checkWhite;
-	}
 	public boolean getTurn(){
 		return turn;
 	}

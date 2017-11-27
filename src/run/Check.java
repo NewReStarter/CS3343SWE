@@ -12,6 +12,7 @@ import piece.Rook;
 public class Check 
 {
 	private ChessBoard board = ChessBoard.getInstance();
+	private static Check theCheck = new Check(true);
 	private int king_x,king_y;
 	private boolean color;
 	
@@ -20,6 +21,10 @@ public class Check
 		findKing();
 	}
 	
+	public static Check getInstance(){
+		return theCheck;
+	}
+
 	public void changeTurn(){
 		this.color = !this.color;
 	}
