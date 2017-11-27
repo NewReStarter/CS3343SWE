@@ -45,10 +45,5 @@ public class Pawn extends Piece{
 		return "Pawn";
 	}
 
-	public void setIfFirstMoveFalse() 
-	{
-		ifFirstMove = false;
-	}
-
 	
 }
