@@ -65,6 +65,7 @@ public class ChessBoard
 		
 			
 		Piece p = this.getPiece(x,y);
+
 		if(p==null){
 			System.out.println("No piece at that position");
 			return false;
@@ -80,6 +81,7 @@ public class ChessBoard
 			return false;
 		}
 		
+
 		if(p instanceof Bishop) {
 			
 			if(p.isValid(x, y,target_x,target_y)&&check.checkBishipBlock(x, y, target_x, target_y)){
