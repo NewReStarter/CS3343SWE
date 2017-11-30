@@ -902,6 +902,10 @@ public class ChessBoard
 	public boolean getTurn(){
 		return turn;
 	}
+	
+	public void setTurn(boolean t) {
+		this.turn = t;
+	}
 
 	public boolean upgrade(String role, int x, int y, int target_x, int target_y) {
 		switch (role){
