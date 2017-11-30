@@ -9,12 +9,15 @@
 5. Support: [YAO Jiayuan](https://github.com/QYYXYs)
 
 ## Version Number
-1.1.9
+1.2.0
 
 ## Version Control
 Git
 
 ## Update Log
+
+**Version 1.2.0** Nov 30th
+Final Release before Presentation
 
 **Version 1.1.9** Nov 29th
 Update testcases and buges fixes in ChessBoard class
