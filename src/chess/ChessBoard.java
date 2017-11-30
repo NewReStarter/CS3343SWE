@@ -89,14 +89,15 @@ public class ChessBoard
 	}
 	
 	public boolean checkLongCastling(){
+		findKing();
 		if(turn){
 			Piece rook= board[0][0];
-			if(rook==null||rook instanceof Rook)
+			if(rook==null||!(rook instanceof Rook))
 				return false;
 			if(((Rook) rook).getIsChange())
 				return false;
 			King king= (King) board[king_x][king_y];
-			if((!((Rook) rook).getIsFirst())&&(!king.isFirst()))
+			if(!(((Rook) rook).getIsFirst()&&king.isFirst()))
 				return false;
 			for(int x=1;x<4;x++){
 				Piece piece=board[0][x];
@@ -104,24 +105,26 @@ public class ChessBoard
 					return false;
 			}
 			int copy_y=king_y;
+			
 			do{
 				if(checkMate()){
 					king_y=copy_y;
 					return false;
 				}
-				king_y--;
+				king_y=king_y-1;
 			}while(king_y>=2);
+			
 			king_y=copy_y;
 			return true;
 		}
 		else{
 			Piece rook= board[7][0];
-			if(rook==null||rook instanceof Rook)
+			if(rook==null||!(rook instanceof Rook))
 				return false;
 			if(((Rook) rook).getIsChange())
 				return false;
 			King king= (King) board[king_x][king_y];
-			if((!((Rook) rook).getIsFirst())&&(!king.isFirst()))
+			if((!((Rook) rook).getIsFirst())||(!king.isFirst()))
 				return false;
 			for(int x=1;x<4;x++){
 				Piece piece=board[7][x];
@@ -143,14 +146,15 @@ public class ChessBoard
 	
 	public boolean checkShortCastling(){
 
+		findKing();
 		if(this.turn){
 			Piece rook= board[0][7];
-			if(rook==null||rook instanceof Rook)
+			if(rook==null||!(rook instanceof Rook))
 				return false;
 			if(((Rook) rook).getIsChange())
 				return false;
 			King king= (King) board[king_x][king_y];
-			if((!((Rook) rook).getIsFirst())&&(!king.isFirst()))
+			if((!((Rook) rook).getIsFirst())||(!king.isFirst()))
 				return false;
 			for(int x=5;x<7;x++){
 				Piece piece=board[0][x];
@@ -170,12 +174,12 @@ public class ChessBoard
 		}
 		else{
 			Piece rook= board[7][7];
-			if(rook==null||rook instanceof Rook)
+			if(rook==null||!(rook instanceof Rook))
 				return false;
 			if(((Rook) rook).getIsChange())
 				return false;
 			King king= (King) board[king_x][king_y];
-			if((!((Rook) rook).getIsFirst())&&(!king.isFirst()))
+			if((!((Rook) rook).getIsFirst())||(!king.isFirst()))
 				return false;
 			for(int x=5;x<7;x++){
 				Piece piece=board[7][x];
@@ -208,7 +212,7 @@ public class ChessBoard
 		
 	}
 	
-	private void findKing(){
+	public void findKing(){
 		for(int i=0; i<8; i++){
 			for(int j=0; j<8; j++){
 				if(!(board[i][j]==null)){
@@ -220,7 +224,7 @@ public class ChessBoard
 			}
 		}
 	}
-	private boolean checkRowAndCol(){//for rook and queen
+	public boolean checkRowAndCol(){//for rook and queen
 		for(int i=king_x-1; i>-1;i--){
 			Piece temp= board[i][king_y];
 			if(temp!=null){
@@ -274,7 +278,7 @@ public class ChessBoard
 		return false;
 	}
 
-	private boolean checkDiagonal(){//for bishop and queen 
+	public boolean checkDiagonal(){//for bishop and queen 
 		int x = king_x;
 		int y = king_y;
 		
@@ -349,7 +353,7 @@ public class ChessBoard
 		return false;
 	}
 
-	private boolean checkKnight(){
+	public boolean checkKnight(){
 		int x = king_x;
 		int y = king_y;
 		Piece temp;
@@ -406,9 +410,12 @@ public class ChessBoard
 		}
 		return false;
 	}
-	private boolean checkPawn(){
+	
+	public boolean checkPawn(){
+		
 		int x = king_x;
 		int y = king_y;
+		
 		Piece temp1,temp2;
 		if(turn){
 			temp1 = board[x+1][y+1];
@@ -452,7 +459,8 @@ public class ChessBoard
 			return true;
 		else
 			return false;
-	}public boolean checkBishipBlock(int x,int y,int target_x,int target_y){
+	}
+	public boolean checkBishipBlock(int x,int y,int target_x,int target_y){
 
 		if(x>target_x){
 			if(y>target_y){
@@ -902,10 +910,6 @@ public class ChessBoard
 	public boolean getTurn(){
 		return turn;
 	}
-	
-	public void setTurn(boolean t) {
-		this.turn = t;
-	}
 
 	public boolean upgrade(String role, int x, int y, int target_x, int target_y) {
 		switch (role){
@@ -924,6 +928,10 @@ public class ChessBoard
 		default:
 			return false;
 		}
+	}
+
+	public void setTurn(boolean turn) {
+		this.turn=turn;
 	}
 
 }
