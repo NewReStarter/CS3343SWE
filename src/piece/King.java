@@ -1,7 +1,6 @@
 package piece;
 
-import chess.ChessBoard;
-import run.Check;
+
 
 public class King extends Piece{
 	

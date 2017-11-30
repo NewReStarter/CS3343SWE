@@ -3,7 +3,7 @@ package piece;
 import chess.ChessBoard;
 
 public class Rook extends Piece{
-	private ChessBoard chessboard=ChessBoard.getInstance();
+	private ChessBoard chessBoard = ChessBoard.getInstance();
 	private boolean isFirst;
 	private boolean isChange;
 	public Rook(boolean color, String id){
@@ -12,22 +12,19 @@ public class Rook extends Piece{
 		isFirst = true;
 		isChange = false;
 	}
-	public Rook(boolean color, String id, int x, int y,boolean change){
+	public Rook(boolean color, String id, boolean change){
 		setColor(color);
 		setId(id);
 		isFirst = true;
 		isChange = change;
 	}
 	
-	public boolean isFirst(){
+	public boolean getIsFirst(){
 		return isFirst;
 	}
 
-	public boolean ischange(){
-		if(isChange)
-			return true;
-		else
-			return false;
+	public boolean getIsChange(){
+		return isChange;
 	}
 
 	public boolean isValid(int x,int y,int target_x, int target_y){
@@ -36,13 +33,11 @@ public class Rook extends Piece{
 		else 
 			return false;
 	}
-	public void move(int x,int y,int target_x, int target_y){
-		
-	}
+
 	public String returnName(){
 		return "Rook";
 	}
-	public void changeisFirst(){
+	public void changeIsFirst(){
 		isFirst=false;
 	}
 }

@@ -44,6 +44,10 @@ public class Pawn extends Piece{
 	public String returnName(){
 		return "Pawn";
 	}
+	
+	public void setIfFirstMoveToFalse() {
+		this.ifFirstMove = false;
+	}
 
 	
 }

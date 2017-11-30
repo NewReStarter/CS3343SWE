@@ -2,7 +2,6 @@ package run;
 
 import java.util.Scanner;
 
-import Exception.ExOutOfBoard;
 import chess.ChessBoard;
 import piece.King;
 import piece.Piece;
