@@ -28,7 +28,7 @@ public class Main
 				System.out.println("Now it is White's turn!");
 			chessBoard.printChessBoard();
 
-			if(chessBoard.checkShortCastling()||chessBoard.checkLongCastling()){
+			if(chessBoard.checkShortCastling() || chessBoard.checkLongCastling()){
 				if(chessBoard.checkLongCastling())
 					System.out.println("You can do Long casting!");
 				if(chessBoard.checkShortCastling())
@@ -126,7 +126,7 @@ public class Main
 					}
 					break;
 				case 2:
-					ifcontinue=false;
+					ifcontinue=false; 
 					break;
 				}
 			}

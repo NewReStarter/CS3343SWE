@@ -1,13 +1,29 @@
 package test;
 
 import piece.*;
+import run.CmdLongCastling;
+import run.CmdMove;
+import run.CmdShortCastling;
+import run.Command;
+import run.Recordcommand;
+import run.Main;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Scanner;
+
+import org.junit.FixMethodOrder;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+import chess.ChessBoard;
 
 public class TestPiece {
-
+	
 	@Test
 	public void test_Bishop_isValid0() {
 		Bishop bishop = new Bishop(true, "bishop");
@@ -408,4 +424,5 @@ public class TestPiece {
 		assertEquals(result, false);
 	}
 	*/
+
 }

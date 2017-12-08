@@ -438,7 +438,7 @@ public class ChessBoard
 		}
 	}
 
-	public boolean checkmate(){
+	public boolean checkmate() {
 		findKing();
 		return checkRowAndCol() || checkDiagonal() || checkKnight() || checkPawn();
 	}
