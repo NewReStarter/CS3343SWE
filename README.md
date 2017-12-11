@@ -6,7 +6,6 @@
 2. Quality Assurance Engineer: [Huang Xiaofeng](https://github.com/PaulHuang227)
 3. Developer Programmer: [CHE Lijia](https://github.com/CHE-Lijia), [Yang Haobo](https://github.com/Dotafterfootball)
 4. Testing Engineer: [Li Muzhi](https://github.com/RaynorLEE)
-5. Support: [YAO Jiayuan](https://github.com/QYYXYs)
 
 ## Version Number
 1.2.0
